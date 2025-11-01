@@ -14,7 +14,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t vaishali/prod-node-app:latest .'
+                sh 'docker build -t vaishalidevops/prod-node-app:latest .'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh '''
                 echo $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin
-                docker push vaishali/prod-node-app:latest
+                docker push vaishalidevops/prod-node-app:latest
                 '''
             }
         }
